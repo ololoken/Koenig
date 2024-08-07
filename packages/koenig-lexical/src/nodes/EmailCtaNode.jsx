@@ -23,6 +23,9 @@ export class EmailCtaNode extends BaseEmailCtaNode {
         insertCommand: INSERT_EMAIL_CTA_COMMAND,
         matches: ['email', 'cta', 'email-cta'],
         priority: 8,
+        isHidden: ({config}) => {
+            return config?.hidden?.emailCTA ?? false;
+        },
         postType: 'post',
         shortcut: '/email-cta'
     };
