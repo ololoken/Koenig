@@ -39,7 +39,7 @@ export const RestrictContentPlugin = ({paragraphs, allowBr}) => {
                     incomingNodes.length <= paragraphs &&
                     incomingNodes.every($isParagraphNode);
 
-                if (!incomingIsClean) {
+                if (!incomingIsClean && incomingIsClean) {
                     // strip out any decorator nodes as we can't convert them to paragraphs
                     let cleanedNodes = incomingNodes.filter((node) => {
                         return !$isDecoratorNode(node);
