@@ -7,6 +7,35 @@ import {defineConfig, loadEnv} from 'vite';
 import {resolve} from 'path';
 import {sentryVitePlugin} from '@sentry/vite-plugin';
 
+function patchLexicalYjsPlugin() {
+    //process.env.NODE_ENV = 'development';
+    return {
+        name: 'patch-lexical-yjs',
+
+        transform(src, id) {
+            if (id.includes('LexicalYjs.js') && String(src).includes(`const LexicalYjs = process.env.NODE_ENV === 'development' ? require('./LexicalYjs.dev.js') : require('./LexicalYjs.prod.js')`)) {
+                const code = src.replace(
+                    `const LexicalYjs = process.env.NODE_ENV === 'development' ? require('./LexicalYjs.dev.js') : require('./LexicalYjs.prod.js')`,
+                    `const LexicalYjs = require('./LexicalYjs.dev.js')`
+                );
+                return {code};
+            }
+            if (String(src).includes('// Nove move, create or remove')) {
+                const code = src.replace('// Nove move, create or remove', `if (collabNodeMap.size === 0) {
+          const collabNode = $createCollabNodeFromLexicalNode(
+            binding,
+            $getNodeByKeyOrThrow(prevKey),
+            this,
+          );
+          this.append(collabNode);
+          collabNodeMap.set(prevKey, collabNode);
+        }`);
+                return {code};
+            }
+        }
+    };
+}
+
 const outputFileName = pkg.name[0] === '@' ? pkg.name.slice(pkg.name.indexOf('/') + 1) : pkg.name;
 
 // https://vitejs.dev/config/
@@ -15,6 +44,7 @@ export default (function viteConfig({mode}) {
     process.env = {...process.env, ...env};
 
     const plugins = [
+        patchLexicalYjsPlugin(),
         svgr(),
         react(),
         mdx()

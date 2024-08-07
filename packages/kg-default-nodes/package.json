@@ -29,6 +29,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "types": "./types/index.d.ts",
   "devDependencies": {
     "@babel/eslint-parser": "7.25.1",
     "@babel/plugin-syntax-import-assertions": "^7.24.1",
