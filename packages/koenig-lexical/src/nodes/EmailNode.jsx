@@ -23,6 +23,9 @@ export class EmailNode extends BaseEmailNode {
         insertCommand: INSERT_EMAIL_COMMAND,
         matches: ['email content', 'only email'],
         priority: 7,
+        isHidden: ({config}) => {
+            return config?.hidden?.emailContent ?? false;
+        },
         postType: 'post',
         shortcut: '/email'
     }];

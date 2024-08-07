@@ -23,6 +23,9 @@ export class BookmarkNode extends BaseBookmarkNode {
         matches: ['bookmark'],
         queryParams: ['url'],
         priority: 6,
+        isHidden: ({config}) => {
+            return config?.hidden?.bookmark ?? false;
+        },
         shortcut: '/bookmark [url]'
     }];
 
