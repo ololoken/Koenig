@@ -1,0 +1,12 @@
+{
+  "ts-node": {
+    "esm": true
+  },
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./es",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true
+  }
+}

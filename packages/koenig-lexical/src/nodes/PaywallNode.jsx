@@ -15,6 +15,9 @@ export class PaywallNode extends BasePaywallNode {
         insertCommand: INSERT_PAYWALL_COMMAND,
         matches: ['public preview','preview', 'public intro', 'members only', 'paywall'],
         priority: 9,
+        isHidden: ({config}) => {
+            return config?.hidden?.paywall ?? false;
+        },
         shortcut: '/paywall'
     };
 
