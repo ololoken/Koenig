@@ -30,6 +30,9 @@ export class EmbedNode extends BaseEmbedNode {
         matches: ['embed'],
         queryParams: ['url'],
         priority: 100,
+        isHidden: ({config}) => {
+            return config?.hidden?.embeds ?? false;
+        },
         shortcut: '/embed [url]'
     },
     {
@@ -41,6 +44,9 @@ export class EmbedNode extends BaseEmbedNode {
         queryParams: ['url'],
         matches: ['youtube'],
         priority: 1,
+        isHidden: ({config}) => {
+            return config?.hidden?.youtube ?? false;
+        },
         shortcut: '/youtube [url]'
     },
     {
@@ -52,6 +58,9 @@ export class EmbedNode extends BaseEmbedNode {
         queryParams: ['url'],
         matches: ['twitter', 'x'],
         priority: 2,
+        isHidden: ({config}) => {
+            return config?.hidden?.twitter ?? false;
+        },
         shortcut: '/twitter [url]'
     },
     {
@@ -63,6 +72,9 @@ export class EmbedNode extends BaseEmbedNode {
         queryParams: ['url'],
         matches: ['vimeo'],
         priority: 4,
+        isHidden: ({config}) => {
+            return config?.hidden?.vimeo ?? false;
+        },
         shortcut: '/vimeo [url]'
     },
     {
@@ -74,6 +86,9 @@ export class EmbedNode extends BaseEmbedNode {
         queryParams: ['url'],
         matches: ['codepen'],
         priority: 5,
+        isHidden: ({config}) => {
+            return config?.hidden?.codepen ?? false;
+        },
         shortcut: '/codepen [url]'
     },
     {
@@ -85,6 +100,9 @@ export class EmbedNode extends BaseEmbedNode {
         queryParams: ['url'],
         matches: ['spotify'],
         priority: 6,
+        isHidden: ({config}) => {
+            return config?.hidden?.spotify ?? false;
+        },
         shortcut: '/spotify [url]'
     },
     {
@@ -96,6 +114,9 @@ export class EmbedNode extends BaseEmbedNode {
         queryParams: ['url'],
         matches: ['soundcloud'],
         priority: 7,
+        isHidden: ({config}) => {
+            return config?.hidden?.soundcloud ?? false;
+        },
         shortcut: '/soundcloud [url]'
     }];
 

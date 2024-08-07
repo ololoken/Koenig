@@ -1,7 +1,8 @@
+import {ExtendedTextNode, TKNode} from '@tryghost/kg-default-nodes';
 import {LinkNode} from '@lexical/link';
-import {TKNode} from '@tryghost/kg-default-nodes';
 
 const MINIMAL_NODES = [
+    ExtendedTextNode,
     LinkNode,
     TKNode
 ];

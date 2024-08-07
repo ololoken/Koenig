@@ -47,6 +47,9 @@ export class HeaderNode extends BaseHeaderNode {
             insertParams: () => ({
                 version: 2
             }),
+            isHidden: ({config}) => {
+                return config?.hidden?.header ?? false;
+            },
             shortcut: '/header'
         }
     ];

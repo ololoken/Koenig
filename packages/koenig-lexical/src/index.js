@@ -9,6 +9,7 @@ import KoenigNestedComposer from './components/KoenigNestedComposer';
 /* Plugins */
 import AudioPlugin from './plugins/AudioPlugin';
 import CallToActionPlugin from './plugins/CallToActionPlugin';
+import BookmarkPlugin from './plugins/BookmarkPlugin';
 import CalloutPlugin from './plugins/CalloutPlugin';
 import CardMenuPlugin from './plugins/CardMenuPlugin';
 import CollectionPlugin from './plugins/CollectionPlugin';
@@ -35,7 +36,18 @@ import TogglePlugin from './plugins/TogglePlugin';
 import VideoPlugin from './plugins/VideoPlugin';
 import WordCountPlugin from './plugins/WordCountPlugin';
 
+import AtLinkPlugin from './plugins/AtLinkPlugin';
+import ButtonPlugin from './plugins/ButtonPlugin';
+import EmEnDashPlugin from './plugins/EmEnDashPlugin';
+import EmbedPlugin from './plugins/EmbedPlugin';
+import HtmlPlugin from './plugins/HtmlPlugin';
+import KoenigSnippetPlugin from './plugins/KoenigSnippetPlugin';
+import {ListPlugin} from '@lexical/react/LexicalListPlugin';
+
 import AllDefaultPlugins from './plugins/AllDefaultPlugins';
+
+import {SharedHistoryContext} from './context/SharedHistoryContext';
+import {SharedOnChangeContext} from './context/SharedOnChangeContext';
 
 /* Nodes */
 import BASIC_NODES from './nodes/BasicNodes';
@@ -52,6 +64,11 @@ import {
     MINIMAL_TRANSFORMERS
 } from './plugins/MarkdownShortcutPlugin';
 
+import * as lexical from 'lexical';
+import {LexicalComposerContext, createLexicalComposerContext, useLexicalComposerContext} from '@lexical/react/LexicalComposerContext';
+import {OnChangePlugin} from '@lexical/react/LexicalOnChangePlugin';
+import {TreeView} from '@lexical/react/LexicalTreeView';
+
 /* Exports ------------------------------------------------------------------ */
 
 export * from './utils';
@@ -65,6 +82,7 @@ export {
     KoenigCardWrapper,
 
     AudioPlugin,
+    BookmarkPlugin,
     CalloutPlugin,
     CallToActionPlugin,
     CardMenuPlugin,
@@ -92,6 +110,14 @@ export {
     VideoPlugin,
     WordCountPlugin,
 
+    AtLinkPlugin,
+    ButtonPlugin,
+    EmbedPlugin,
+    EmEnDashPlugin,
+    HtmlPlugin,
+    KoenigSnippetPlugin,
+    ListPlugin,
+
     AllDefaultPlugins,
 
     DEFAULT_NODES,
@@ -104,7 +130,17 @@ export {
 
     DEFAULT_TRANSFORMERS,
     BASIC_TRANSFORMERS,
-    MINIMAL_TRANSFORMERS
+    MINIMAL_TRANSFORMERS,
+
+    lexical,
+    OnChangePlugin,
+    TreeView,
+    LexicalComposerContext,
+    createLexicalComposerContext,
+    useLexicalComposerContext,
+
+    SharedHistoryContext,
+    SharedOnChangeContext
 };
 
 // eslint-disable-next-line no-undef

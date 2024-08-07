@@ -24,6 +24,9 @@ export class ToggleNode extends BaseToggleNode {
         insertCommand: INSERT_TOGGLE_COMMAND,
         matches: ['toggle', 'collapse'],
         priority: 12,
+        isHidden: ({config}) => {
+            return config?.hidden?.toggle ?? false;
+        },
         shortcut: '/toggle'
     }];
 

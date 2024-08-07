@@ -23,6 +23,9 @@ export class ProductNode extends BaseProductNode {
         Icon: ProductCardIcon,
         insertCommand: INSERT_PRODUCT_COMMAND,
         matches: ['product'],
+        isHidden: ({config}) => {
+            return config?.hidden?.product ?? false;
+        },
         priority: 16,
         shortcut: '/product'
     }];

@@ -14,10 +14,12 @@
   "module": "./dist/koenig-lexical.js",
   "exports": {
     ".": {
-      "import": "./dist/koenig-lexical.js",
+      "import": ["./dist/koenig-lexical.js", "./types/index.d.ts"],
       "require": "./dist/koenig-lexical.umd.js"
-    }
+    },
+    "./index.css": "./dist/index.css"
   },
+  "types": "./types/index.d.ts",
   "scripts": {
     "dev": "concurrently \"vite --host --force\" \"yarn build --watch\" \"yarn preview -l silent --host\" \"yarn workspace @tryghost/kg-default-nodes dev\" \"yarn workspace @tryghost/kg-default-transforms dev\"",
     "dev:multiplayer": "concurrently \"vite\" \"yarn multiplayer\"",
@@ -125,9 +127,11 @@
     "tailwindcss": "3.4.17",
     "typescript": "5.8.3",
     "vite": "4.5.13",
+    "socket.io-client": "4.8.1",
     "vite-plugin-svgr": "4.3.0",
     "vitest": "1.6.1",
-    "y-websocket": "^1.5.0",
-    "yjs": "^13.6.25"
+    "y-websocket": "2.1.0",
+    "yjs": "13.6.26",
+    "vite-plugin-dts": "^3.9.1"
   }
 }
